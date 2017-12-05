@@ -28,7 +28,7 @@ class Controller extends WebController
     {
         $blogs = Apiato::call('Blog@GetAllBlogsAction', [$request]);
 
-        // ..
+        return view('blog::index', compact('blogs'));
     }
 
     /**
@@ -40,7 +40,7 @@ class Controller extends WebController
     {
         $blog = Apiato::call('Blog@FindBlogByIdAction', [$request]);
 
-        // ..
+        return view('blog::show', compact('blog'));
     }
 
     /**
@@ -50,7 +50,7 @@ class Controller extends WebController
      */
     public function create(CreateBlogRequest $request)
     {
-        // ..
+        return view('blog::create');
     }
 
     /**
@@ -62,7 +62,7 @@ class Controller extends WebController
     {
         $blog = Apiato::call('Blog@CreateBlogAction', [$request]);
 
-        // ..
+        return redirect()->route('web_blog_create')->with('success', true);
     }
 
     /**

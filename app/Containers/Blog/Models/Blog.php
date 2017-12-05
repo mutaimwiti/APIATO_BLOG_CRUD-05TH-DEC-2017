@@ -3,11 +3,14 @@
 namespace App\Containers\Blog\Models;
 
 use App\Ship\Parents\Models\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Blog extends Model
 {
-    protected $fillable = [
+    use SoftDeletes;
 
+    protected $fillable = [
+        'title', 'body'
     ];
 
     protected $attributes = [
@@ -31,4 +34,8 @@ class Blog extends Model
      * A resource key to be used by the the JSON API Serializer responses.
      */
     protected $resourceKey = 'blogs';
+
+    public function path(){
+        return 'blogs/' . $this->id;
+    }
 }
