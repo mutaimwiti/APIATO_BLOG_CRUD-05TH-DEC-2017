@@ -36,6 +36,6 @@ class Blog extends Model
     protected $resourceKey = 'blogs';
 
     public function path(){
-        return $this->id;
+        return 'blogs/' .$this->id;
     }
 }
