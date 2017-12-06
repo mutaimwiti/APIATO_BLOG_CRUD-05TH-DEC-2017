@@ -98,6 +98,6 @@ class Controller extends WebController
     {
          $result = Apiato::call('Blog@DeleteBlogAction', [$request]);
 
-         // ..
+        return redirect()->route('web_blog_index')->with('deleted', $result);
     }
 }
