@@ -11,7 +11,7 @@ class UpdateBlogAction extends Action
     public function run(Request $request)
     {
         $data = $request->sanitizeInput([
-            // add your request data here
+            'title', 'body'
         ]);
 
         $blog = Apiato::call('Blog@UpdateBlogTask', [$request->id, $data]);

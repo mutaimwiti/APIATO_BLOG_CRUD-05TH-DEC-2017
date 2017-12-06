@@ -72,9 +72,9 @@ class Controller extends WebController
      */
     public function edit(EditBlogRequest $request)
     {
-        $blog = Apiato::call('Blog@GetBlogByIdAction', [$request]);
+        $blog = Apiato::call('Blog@FindBlogByIdAction', [$request]);
 
-        // ..
+        return view('blog::edit', compact('blog'));
     }
 
     /**
@@ -86,7 +86,7 @@ class Controller extends WebController
     {
         $blog = Apiato::call('Blog@UpdateBlogAction', [$request]);
 
-        // ..
+        return redirect()->route('web_blog_edit', compact('blog'))->with('success', true);
     }
 
     /**
