@@ -22,7 +22,7 @@
 
 $router->patch('user/paymentaccounts/{id}', [
     'as' => 'api_payment_update_payment_account',
-    'uses'  => 'Controller@updatePaymentAccount',
+    'uses'  => 'AdminController@updatePaymentAccount',
     'middleware' => [
       'auth:api',
     ],

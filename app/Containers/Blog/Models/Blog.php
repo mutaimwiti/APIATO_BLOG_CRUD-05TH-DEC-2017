@@ -2,6 +2,7 @@
 
 namespace App\Containers\Blog\Models;
 
+use App\Containers\User\Models\User;
 use App\Ship\Parents\Models\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -10,7 +11,7 @@ class Blog extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'title', 'body'
+        'user_id', 'title', 'body'
     ];
 
     protected $attributes = [
@@ -37,5 +38,9 @@ class Blog extends Model
 
     public function path(){
         return 'blogs/' .$this->id;
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }

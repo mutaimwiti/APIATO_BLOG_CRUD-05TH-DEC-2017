@@ -18,7 +18,7 @@
 
 $router->delete('roles/{id}', [
     'as' => 'api_authorization_delete_role',
-    'uses'       => 'Controller@deleteRole',
+    'uses'       => 'AdminController@deleteRole',
     'middleware' => [
         'auth:api',
     ],

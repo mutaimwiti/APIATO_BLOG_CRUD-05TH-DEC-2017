@@ -30,7 +30,7 @@
 
 $router->patch('settings/{id}', [
     'as' => 'api_settings_update_setting',
-    'uses'  => 'Controller@updateSetting',
+    'uses'  => 'AdminController@updateSetting',
     'middleware' => [
       'auth:api',
     ],

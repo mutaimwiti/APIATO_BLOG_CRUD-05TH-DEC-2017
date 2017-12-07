@@ -21,7 +21,7 @@
 
 $router->post('permissions/detach', [
     'as' => 'api_authorization_detach_permission_from_role',
-    'uses'       => 'Controller@detachPermissionFromRole',
+    'uses'       => 'AdminController@detachPermissionFromRole',
     'middleware' => [
         'auth:api',
     ],

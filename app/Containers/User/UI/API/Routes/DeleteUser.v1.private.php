@@ -18,7 +18,7 @@
 
 $router->delete('users/{id}', [
     'as' => 'api_user_delete_user',
-    'uses'       => 'Controller@deleteUser',
+    'uses'       => 'AdminController@deleteUser',
     'middleware' => [
         'auth:api',
     ],

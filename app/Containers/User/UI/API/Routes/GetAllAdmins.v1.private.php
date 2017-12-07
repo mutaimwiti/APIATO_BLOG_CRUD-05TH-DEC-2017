@@ -18,7 +18,7 @@
 
 $router->get('admins', [
     'as' => 'api_user_get_all_admins',
-    'uses'       => 'Controller@getAllAdmins',
+    'uses'       => 'AdminController@getAllAdmins',
     'middleware' => [
         'auth:api',
     ],

@@ -21,7 +21,7 @@
 
 $router->patch('user/payments/accounts/stripe/{id}', [
     'as' => 'api_stripe_update_stripe_account',
-    'uses'  => 'Controller@updateStripeAccount',
+    'uses'  => 'AdminController@updateStripeAccount',
     'middleware' => [
       'auth:api',
     ],

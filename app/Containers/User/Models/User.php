@@ -3,6 +3,7 @@
 namespace App\Containers\User\Models;
 
 use App\Containers\Authorization\Traits\AuthorizationTrait;
+use App\Containers\Blog\Models\Blog;
 use App\Containers\Payment\Contracts\ChargeableInterface;
 use App\Containers\Payment\Models\PaymentAccount;
 use App\Containers\Payment\Traits\ChargeableTrait;
@@ -81,6 +82,11 @@ class User extends UserModel implements ChargeableInterface
     public function paymentAccounts()
     {
         return $this->hasMany(PaymentAccount::class);
+    }
+
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class);
     }
 
 }

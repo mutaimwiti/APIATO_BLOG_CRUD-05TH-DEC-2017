@@ -13,7 +13,7 @@
 
 $router->get('permissions', [
     'as' => 'api_authorization_get_all_permissions',
-    'uses'       => 'Controller@getAllPermissions',
+    'uses'       => 'AdminController@getAllPermissions',
     'middleware' => [
         'auth:api',
     ],

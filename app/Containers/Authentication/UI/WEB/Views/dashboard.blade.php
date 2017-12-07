@@ -1,46 +1,23 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Apiato</title>
+@extends('authentication::layouts.app')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+@section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Admin dashboard</div>
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+                    <div class="panel-body">
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 100px;
-                color: #00bdf4;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Welcome Admin</div>
+                        You are logged in!
+                    </div>
+                </div>
             </div>
         </div>
-    </body>
-</html>
+    </div>
+@endsection

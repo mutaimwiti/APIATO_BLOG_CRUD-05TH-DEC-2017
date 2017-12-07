@@ -21,7 +21,7 @@
 
 $router->post('roles/revoke', [
     'as' => 'api_authorization_revoke_role_from_user',
-    'uses'       => 'Controller@revokeRoleFromUser',
+    'uses'       => 'AdminController@revokeRoleFromUser',
     'middleware' => [
         'auth:api',
     ],

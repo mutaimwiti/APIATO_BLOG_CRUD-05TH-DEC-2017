@@ -40,7 +40,6 @@ class CreateUserByCredentialsTask extends Task
                 'birth'     => $birth,
                 'is_client' => $isClient,
             ]);
-
         } catch (Exception $e) {
             throw (new CreateResourceFailedException())->debug($e);
         }

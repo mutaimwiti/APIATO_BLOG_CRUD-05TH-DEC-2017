@@ -21,7 +21,7 @@
 
 $router->get('localizations', [
     'as' => 'api_localization_get_all_localizations',
-    'uses'  => 'Controller@getAllLocalizations',
+    'uses'  => 'AdminController@getAllLocalizations',
     'middleware' => [
       'auth:api',
     ],

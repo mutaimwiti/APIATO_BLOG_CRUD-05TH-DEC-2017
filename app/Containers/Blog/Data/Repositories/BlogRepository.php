@@ -2,6 +2,7 @@
 
 namespace App\Containers\Blog\Data\Repositories;
 
+use App\Containers\Blog\Models\Blog;
 use App\Ship\Parents\Repositories\Repository;
 
 /**
@@ -24,4 +25,8 @@ class BlogRepository extends Repository
         // ...
     ];
 
+    public function myBlogs()
+    {
+        return Blog::where('user_id', auth()->id())->get();
+    }
 }

@@ -12,7 +12,7 @@ class CreateBlogTables extends Migration
     public function up()
     {
         Schema::create('blogs', function (Blueprint $table) {
-
+            $table->unsignedInteger('user_id');
             $table->increments('id');
             $table->string('title');
             $table->text('body');

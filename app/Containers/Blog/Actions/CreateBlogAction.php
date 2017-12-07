@@ -14,6 +14,8 @@ class CreateBlogAction extends Action
             'title', 'body'
         ]);
 
+        $data['user_id'] = auth()->id();
+
         $blog = Apiato::call('Blog@CreateBlogTask', [$data]);
 
         return $blog;

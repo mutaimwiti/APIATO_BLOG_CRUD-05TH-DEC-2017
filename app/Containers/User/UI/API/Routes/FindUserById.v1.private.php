@@ -14,7 +14,7 @@
 
 $router->get('users/{id}', [
     'as' => 'api_user_find_user',
-    'uses'       => 'Controller@findUserById',
+    'uses'       => 'AdminController@findUserById',
     'middleware' => [
         'auth:api',
     ],

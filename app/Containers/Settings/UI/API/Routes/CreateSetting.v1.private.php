@@ -30,7 +30,7 @@
 
 $router->post('settings', [
     'as' => 'api_settings_create_setting',
-    'uses'  => 'Controller@createSetting',
+    'uses'  => 'AdminController@createSetting',
     'middleware' => [
       'auth:api',
     ],

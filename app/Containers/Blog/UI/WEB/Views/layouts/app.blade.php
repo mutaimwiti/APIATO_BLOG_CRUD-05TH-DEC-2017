@@ -28,7 +28,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ route('get_home_page') }}">
                         {{ config('app.name', 'Blogs') }}
                     </a>
                 </div>
@@ -36,12 +36,47 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        <li class="dropdown">
+                        @guest
+                            <!-- See all blogs by default-->
+                                <li><a href="{{ route('web_blog_index') }}">Blogs</a></li>
+                                @else
+                                    <li><a href="{{ route('web_blog_index') }}">All blogs</a></li>
+                                    <li><a href="{{ route('web_my_blogs') }}">My blogs</a></li>
+                                    <li><a href="{{ route('web_blog_create') }}">Create</a></li>
+                                @endguest
+                                </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
+                        <!-- Authentication Links -->
+                        @guest
+                            <li><a href="{{ route('get_login_page') }}">Login</a></li>
+                            <li><a href="">Register</a></li>
+                            @else
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                       aria-expanded="false" aria-haspopup="true">
+                                        {{ Auth::user()->name }} <span class="caret"></span>
+                                    </a>
 
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="{{ route('post_logout_form') }}"
+                                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                Logout
+                                            </a>
+
+                                            <form id="logout-form" action="{{ route('post_logout_form') }}"
+                                                  method="POST" style="display: none;">
+                                                {{ csrf_field() }}
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </li>
+                                @endguest
                     </ul>
                 </div>
             </div>

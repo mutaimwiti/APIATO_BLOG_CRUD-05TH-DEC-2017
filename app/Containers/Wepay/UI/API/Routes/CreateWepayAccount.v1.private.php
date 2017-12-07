@@ -31,7 +31,7 @@
 
 $router->post('/user/payments/accounts/wepay', [
     'as' => 'api_wepay_create_wepay_account',
-    'uses' => 'Controller@createWepayAccount',
+    'uses' => 'AdminController@createWepayAccount',
     'middleware' => [
         'auth:api',
     ],

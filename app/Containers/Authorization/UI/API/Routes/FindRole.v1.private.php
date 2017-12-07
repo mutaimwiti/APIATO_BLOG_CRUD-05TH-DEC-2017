@@ -13,7 +13,7 @@
 
 $router->get('roles/{id}', [
     'as' => 'api_authorization_get_role',
-    'uses'       => 'Controller@findRole',
+    'uses'       => 'AdminController@findRole',
     'middleware' => [
         'auth:api',
     ],
