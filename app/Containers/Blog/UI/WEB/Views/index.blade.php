@@ -16,17 +16,31 @@
                                 </div>
                             @endif
                         @endif
-                        @foreach($blogs as $blog)
-                            <article>
-                                <h4>
-                                    <a href="{{ $blog->path() }}">
-                                        {{ $blog->title }}
-                                    </a>
-                                </h4>
-                                <div class="body">{{ $blog->body }}</div>
-                                <hr>
-                            </article>
-                        @endforeach
+                        @if( count($blogs) )
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Author</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($blogs as $blog)
+                                    <tr>
+                                        <td>
+                                            <a href="{{ $blog->path() }}">{{ $blog->title }}</a>
+                                        </td>
+                                        <td>{{ $blog->user->name }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                                {{ $blogs->links() }}
+                            @else
+                                <div class="alert alert-danger">
+                                    There are no relevant results currently!
+                                </div>
+                            @endif
                     </div>
                 </div>
             </div>

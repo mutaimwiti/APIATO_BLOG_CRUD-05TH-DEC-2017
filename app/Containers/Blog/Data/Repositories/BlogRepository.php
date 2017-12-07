@@ -27,6 +27,6 @@ class BlogRepository extends Repository
 
     public function myBlogs()
     {
-        return Blog::where('user_id', auth()->id())->get();
+        return Blog::where('user_id', auth()->id())->paginate();
     }
 }
