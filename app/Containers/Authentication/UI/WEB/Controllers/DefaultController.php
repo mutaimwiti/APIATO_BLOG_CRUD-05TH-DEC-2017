@@ -25,7 +25,7 @@ class DefaultController extends WebController
             return redirect('login')->with('status', $e->getMessage());
         }
 
-        return is_array($result) ? redirect('login')->with($result) : redirect('home');
+        return is_array($result) ? redirect('login')->with($result) : redirect('/');
     }
 
     public function viewHomePage(ViewHomeRequest $request)
@@ -46,14 +46,14 @@ class DefaultController extends WebController
             return redirect('register')->with('status',$e->getMessage());
         }
 
-        return is_array($result) ? redirect('register')->with($result) : redirect('home');
+        return is_array($result) ? redirect('register')->with($result) : redirect('/');
     }
 
     public function logout()
     {
         Apiato::call('Authentication@WebLogoutAction');
 
-        return redirect('login');
+        return redirect('/');
     }
 
 }
