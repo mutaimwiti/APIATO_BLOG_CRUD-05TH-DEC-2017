@@ -35,6 +35,13 @@ class Controller extends WebController
         return view('blog::show', compact('blog'));
     }
 
+    public function showMyBlog(FindBlogByIdRequest $request)
+    {
+        $blog = Apiato::call('Blog@FindBlogByIdAction', [$request]);
+
+        return view('blog::show_my_blog', compact('blog'));
+    }
+
     public function create(CreateBlogRequest $request)
     {
         return view('blog::create');
@@ -65,6 +72,6 @@ class Controller extends WebController
     {
          $result = Apiato::call('Blog@DeleteBlogAction', [$request]);
 
-        return redirect()->route('web_blog_index')->with('deleted', $result);
+        return redirect()->route('web_my_blogs')->with('deleted', $result);
     }
 }

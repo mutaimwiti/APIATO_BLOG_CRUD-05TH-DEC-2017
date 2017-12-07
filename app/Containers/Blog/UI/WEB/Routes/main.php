@@ -33,6 +33,14 @@ $router->get('blogs/{id}', [
     ],
 ]);
 
+$router->get('my-blogs/{id}', [
+    'as' => 'web_my_blog_show',
+    'uses'  => 'Controller@showMyBlog',
+    'middleware' => [
+        'auth:web',
+    ],
+]);
+
 $router->get('my-blogs', [
     'as' => 'web_my_blogs',
     'uses'  => 'Controller@myBlogs',

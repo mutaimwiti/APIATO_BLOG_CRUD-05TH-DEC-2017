@@ -27,7 +27,7 @@
                                     @foreach($blogs as $blog)
                                         <tr>
                                             <td>
-                                                <a href="{{ $blog->path() }}">{{ $blog->title }}</a>
+                                                <a href="{{ route('web_my_blog_show', $blog->id) }}">{{ $blog->title }}</a>
                                             </td>
                                         </tr>
                                     @endforeach

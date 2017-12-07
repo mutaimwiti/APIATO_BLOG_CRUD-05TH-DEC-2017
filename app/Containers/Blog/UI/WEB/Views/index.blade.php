@@ -8,14 +8,6 @@
                     <div class="panel-heading">Blogs</div>
 
                     <div class="panel-body">
-                        @if(session()->has('deleted'))
-                            @if(session('deleted') == true)
-                                <div class="alert alert-warning alert-dismissable">
-                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                    The blog was deleted!
-                                </div>
-                            @endif
-                        @endif
                         @if( count($blogs) )
                             <table class="table">
                                 <thead>
