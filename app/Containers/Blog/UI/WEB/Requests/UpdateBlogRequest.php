@@ -44,8 +44,8 @@ class UpdateBlogRequest extends Request
     public function rules()
     {
         return [
-            // 'id' => 'required',
-            // '{user-input}' => 'required|max:255',
+            'title' => 'string|required|max:255',
+            'body' => 'string|required|max:65,534'
         ];
     }
 
