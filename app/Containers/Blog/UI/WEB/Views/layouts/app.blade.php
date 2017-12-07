@@ -53,7 +53,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('get_login_page') }}">Login</a></li>
-                            <li><a href="">Register</a></li>
+                            <li><a href="{{ route('get_register_page') }}">Register</a></li>
                             @else
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
