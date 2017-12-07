@@ -15,13 +15,23 @@
                         @endif
                         <form class="form" method="post" action="{{ route('web_blog_store') }}">
                             {{ csrf_field() }}
-                            <div class="form-group">
+                            <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                                 <label class="control-label">Title</label>
                                 <input name="title" class="form-control">
+                                @if ($errors->has('title'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('title') }}</strong>
+                                    </span>
+                                @endif
                             </div>
-                            <div class="form-group">
+                            <div class="form-group{{ $errors->has('body') ? ' has-error' : '' }}">
                                 <label class="control-label">Body</label>
                                 <textarea name="body" class="form-control"></textarea>
+                                @if ($errors->has('body'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('body') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <input type="submit" value="Create" class="btn btn-primary">
