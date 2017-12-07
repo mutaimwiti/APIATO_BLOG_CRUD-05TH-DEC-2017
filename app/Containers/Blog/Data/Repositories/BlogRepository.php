@@ -27,6 +27,11 @@ class BlogRepository extends Repository
 
     public function myBlogs()
     {
-        return Blog::where('user_id', auth()->id())->paginate();
+        return Blog::where('user_id', auth()->id())->orderBy('created_at', 'desc')->paginate(10);
+    }
+
+    public function allBlogs()
+    {
+        return Blog::orderBy('created_at', 'desc')->paginate(10);
     }
 }
